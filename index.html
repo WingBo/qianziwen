@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-cmn-Hans-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>《千字文》 - 文博社</title>
+    <link rel="stylesheet" href="//unpkg.com/heti/umd/heti.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<main class="container">
+    <article class="heti heti--ancient">
+        <h1>千字文</h1>
+        <p class="heti-small article-description">
+            《千字文》原名为《次韵王羲之书千字》，由南北朝时期梁朝散骑侍郎、给事中周兴嗣编纂的一篇韵文，全文为四字句子，对仗工整，条理清晰，文采斐然。《千字文》涵盖了天文、地理、自然、社会、历史等多方面的知识，是中国传统文化的重要组成部分。
+        </p>
+        <p class="heti-verse heti-x-large" id="article-body">
+        </p>
+    </article>
+    <footer>
+        <hr>
+        <small class="power-by">文字排版效果由 <a href="https://sivan.github.io/heti/">赫蹏</a> 驱动，网页托管于 <a href="https://github.com/WingBo/qianziwen">GitHub</a> 。</small>
+    </footer>
+</main>
+
+<script src="//unpkg.com/heti/umd/heti-addon.min.js"></script>
+<script src="./data.js"></script>
+<script>
+    let artBodyEl = document.getElementById("article-body");
+    const contentItems = qzwData.content
+    let _body = "";
+    contentItems.forEach((content, index) => {
+        if (index%2 === 0) {
+            _body += content + '，';
+        } else {
+            _body += content + '。<br>';
+        }
+    })
+    artBodyEl.innerHTML = _body;
+    const heti = new Heti('.heti');
+    heti.autoSpacing();
+</script>
+</body>
+</html>
